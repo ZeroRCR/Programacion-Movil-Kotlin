@@ -1,0 +1,12 @@
+//Torres Aranda Carlos Ivan
+const val PI = 3.14159
+
+fun main() {
+    val radio = 5
+    val perimetro = PI*2*radio
+    val num_Dec = 3.14159 
+    val num_Float = num_Dec.toFloat()
+    val tipoDato = num_Float::class.simpleName
+    println("Se cambio el tipo de dato de num_Dec, ahora es de tipo: $tipoDato y su valor es $num_Float")
+    println("El perimetro del circulo es $perimetro")
+}
