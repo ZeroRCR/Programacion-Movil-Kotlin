@@ -1,0 +1,15 @@
+/* calificacion por defecto es 8*/
+var calif1:Int = 8
+var calif2:Int = 8
+var calif3:Int = 8
+
+
+    
+fun main() {
+    calculoCalif(9,2,4)
+     
+}
+
+fun calculoCalif(calif1:Float = 8f,calif2::Float = 8f,calif3:Float):Float {
+    return (calif1+calif2+calif3)/3f
+}
