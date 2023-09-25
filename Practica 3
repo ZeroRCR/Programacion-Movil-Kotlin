@@ -1,0 +1,22 @@
+/**
+ * Torres Aranda Carlos Ivan
+ */
+var var1 = 4.0
+var var2 = -3.0
+var var3 = 3.0
+var var4 = -2.0
+var res:Double = 0.0
+
+    
+fun main() {
+    calculos()
+    imprimirVal() 
+}
+
+fun calculos() {
+    res = (var4-var3)/(var2-var1)
+}
+
+fun imprimirVal() {
+    print("El valor de la pendiente para los valores\n X1:$var1\n X2:$var2\n Y1:$var3\n Y2:$var4\n es: ")
+    print("$res")
