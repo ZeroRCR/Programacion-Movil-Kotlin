@@ -1,0 +1,14 @@
+fun main() {
+   gradoEscolar()
+}
+
+fun gradoEscolar(){
+    print("Ingresa edad y presiona enter (escribe solo el numero):")
+    val age = readLine()?.toInt()
+    when (age){
+        0 -> println("Apenas eres un recien nacido")
+        1 -> println("Solo tienes un año de edad")
+        2 -> println("Tienes dos años")
+        
+    }
+}
