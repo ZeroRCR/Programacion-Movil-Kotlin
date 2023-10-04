@@ -1,0 +1,13 @@
+fun main() {
+    println("Ingrese la edad de la persona:")
+    val edad = readLine()?.toIntOrNull()
+
+    when (edad) {
+        null -> println("Por favor, ingrese una edad válida.")
+        in 0..2 -> println("La persona es un bebé.")
+        in 3..12 -> println("La persona es un niño.")
+        in 13..19 -> println("La persona es un adolescente.")
+        in 20..64 -> println("La persona es un adulto.")
+        else -> println("La persona es un adulto mayor.")
+    }
+}
