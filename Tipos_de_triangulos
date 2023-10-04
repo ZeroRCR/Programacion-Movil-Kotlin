@@ -1,0 +1,28 @@
+fun calcularTriangulo() {
+    val lado1 = 3.0
+    val lado2 = 4.0
+    val lado3 = 5.0
+
+    if (verificarSiEsTriangulo(lado1, lado2, lado3)) {
+        val tipo = determinarTipoTriangulo(a = lado1, b = lado2, c = lado3)
+        println("Clasificación del triángulo: $tipo")
+    } else {
+        println("Las longitudes ingresadas no pueden formar un triángulo válido.")
+    }
+}
+
+fun verificarSiEsTriangulo(a: Double, b: Double, c: Double): Boolean {
+    return (a + b > c) && (a + c > b) && (b + c > a)
+}
+
+fun determinarTipoTriangulo(a: Double, b: Double, c: Double): String {
+    return when {
+        a == b && b == c -> "triángulo equilátero"
+        a == b || b == c || a == c -> "triángulo isósceles"
+        else -> "triángulo escaleno"
+    }
+}
+
+fun main() {
+    calcularTriangulo()
+}
