@@ -1,0 +1,22 @@
+fun main() {
+    println("Ingrese el valor de la anchura del cubo:")
+    val anchura = readLine()?.toDoubleOrNull()
+
+    if (anchura != null && anchura > 0) {
+        val area = calcularAreaCubo(anchura)
+        val volumen = calcularVolumenCubo(anchura)
+
+        println("El área del cubo es: $area unidades cuadradas")
+        println("El volumen del cubo es: $volumen unidades cúbicas")
+    } else {
+        println("Por favor, ingrese un valor de anchura válido y positivo.")
+    }
+}
+
+fun calcularAreaCubo(anchura: Double): Double {
+    return 6 * anchura * anchura
+}
+
+fun calcularVolumenCubo(anchura: Double): Double {
+    return anchura * anchura * anchura
+}
