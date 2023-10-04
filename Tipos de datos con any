@@ -1,0 +1,12 @@
+fun main() {
+    println("Ingrese un dato:")
+    val dato: Any? = readLine()
+
+    when (dato) {
+        is Int -> println("Ha ingresado un valor de tipo Int.")
+        is Double -> println("Ha ingresado un valor de tipo Double.")
+        is String -> println("Ha ingresado un valor de tipo String.")
+        is Boolean -> println("Ha ingresado un valor de tipo Boolean.")
+        else -> println("El tipo de dato ingresado es desconocido.")
+    }
+}
