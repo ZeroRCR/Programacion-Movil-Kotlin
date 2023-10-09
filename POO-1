@@ -1,0 +1,36 @@
+import clases.Vehiculo
+
+fun main() {
+
+    val miVehiculo = Vehiculo("Ford","Focus","Verde")
+    miVehiculo.placas="REM-4123"
+    println("El coche está prendido? ${miVehiculo.encendido}")
+    miVehiculo.encender()
+    println("El coche está prendido? ${miVehiculo.encendido}")
+    println("EL tanque tiene ${miVehiculo.gasolina}")
+    miVehiculo.recargar(20.99f)
+    println("EL tanque tiene ${miVehiculo.gasolina}")
+
+}
+
+//EN LA CARPETA DE CLASES
+
+package clases
+
+class Vehiculo constructor(val marca:String, val modelo:String, var color:String){
+    var placas = ""
+    var gasolina = 0f
+    var encendido = false
+
+    fun encender (){
+        encendido=true
+    }
+
+    fun apagar (){
+        encendido=false
+    }
+
+    fun recargar(litros:Float){
+        gasolina+=litros
+    }
+}
