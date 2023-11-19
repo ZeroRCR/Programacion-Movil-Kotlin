@@ -1,0 +1,22 @@
+fun funcionOSup(precio: Float, precioFinal: (Float) -> Float): Float {
+    return precioFinal(precio)
+}
+
+fun NOIVA(precio: Float) = precio
+fun HALFIVA(precio: Float) = precio * 0.08f + precio
+fun MINUS100(precio: Float) = precio - 100
+
+fun PROMO2020(precio: Float): Float {
+    return when(precio) {
+        in 1.0..1000.0 -> precio * 0.12f + precio
+        in 1000.0..2000.0 -> precio * 0.04f + precio
+        in 2000.0..4000.0 -> (precio * 0.16f + precio) / 2
+        else -> precio / 3;
+    }
+}
+
+fun main() {
+    val prueba = funcionOSup(4001f, ::PROMO2020)
+    
+    println(prueba)
+}
