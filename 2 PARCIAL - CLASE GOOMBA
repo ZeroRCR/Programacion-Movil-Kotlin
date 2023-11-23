@@ -1,0 +1,8 @@
+package Clases
+
+// Clase Goomba que hereda de la clase Enemy, con un nombre predeterminado "Goomba" y fuerza 1.
+class Goomba : Enemigo("Goomba", 1) {
+    init {
+        println("Iniciando subclase de $nombre") // Mensaje de inicialización al crear una instancia.
+    }
+}
