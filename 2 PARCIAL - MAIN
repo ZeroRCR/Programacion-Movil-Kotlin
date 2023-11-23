@@ -1,0 +1,64 @@
+import Clases.Goomba
+import Clases.Koopa
+import Clases.Mario
+import clases.Vehiculo
+import clases.persona
+
+
+
+fun main(){
+        //Clase Vehiculo
+        val miVehiculo = Vehiculo("Ford","2020","Verde")
+        miVehiculo.placas = "NNT3047"
+        println("El coche está encendido? ${miVehiculo.encendido}")
+        miVehiculo.encender()
+        println("El coche encendio? ${miVehiculo.encendido}")
+        println("El tanque tiene ${miVehiculo.gasolina}")
+        miVehiculo.recargar(20.07f)
+        println("El tanque ahora tiene ${miVehiculo.gasolina}")
+        val golNegro = Vehiculo("Volkswagen", "Gol")
+          val sonicAzul = Vehiculo(
+                marca = "Ford",
+                modelo = "Sonic",
+                color = "Azul",
+                placas = "ALS9763"
+        )
+        println(golNegro)
+        println(sonicAzul)
+            /* val miVehiculo = Vehiculo("Ford","Focus","Verde")
+     miVehiculo.placas="REM-4123"
+     println("El coche está prendido? ${miVehiculo.encendido}")
+     miVehiculo.encender()
+     println("El coche está prendido? ${miVehiculo.encendido}")
+     println("EL tanque tiene ${miVehiculo.gasolina}")
+     miVehiculo.recargar(20.99f)
+     println("EL tanque tiene ${miVehiculo.gasolina}")
+ */
+    }
+
+        //Clase Telefono
+        val myPhone = Phone()
+        myPhone.getTurn()
+        myPhone.turnOn()
+        myPhone.getTurn()
+        
+
+/*fun main(){
+        var mario = Mario()
+        /*for (i in 1..5){
+                if(mario.isAlive){
+                        mario.collision("Goomba")
+                        println("Te quedan ${mario.getLives()}")
+                }
+                println("Te quedan ${mario.getLives()}")
+        }*/
+        mario.collision("star")
+        /*val enemy = Enemy("Un enemigo",2)
+        enemy.collision("Enemy")
+        enemy.collision("Weapon")*/
+        val enemy = Goomba()
+        enemy.collision("Enemy")
+        enemy.collision("Weapon")
+        val koopa = Koopa()
+        koopa.collision("Weapon")
+}*/
