@@ -1,0 +1,17 @@
+package Clases
+
+// Clase Koopa que hereda de la clase Enemy, con un nombre predeterminado "Koopa" y fuerza 2.
+class Koopa : Enemigo("Koopa", 2) {
+
+    // Sobrescribe la función de colisión de la clase Enemy.
+    override fun colision(colisionador: String) {
+        when (colisionador) {
+            "Weapon" -> {
+                var estado = "Caparazón" // Cambiado el nombre de la variable a español
+                println("El estado ahora es $estado") // Imprime el nuevo estado.
+            }
+            "Enemigo" -> cambiarDireccion() // Cambiado el nombre de la función a español
+        }
+        println("Usando la colisión de la clase Enemy") // Mensaje adicional después de la colisión.
+    }
+}
