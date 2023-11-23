@@ -1,0 +1,33 @@
+package Clases
+
+// Clase abierta National que hereda de la clase Travel.
+open class National(override val city: String) : Travel() {
+    
+    // Propiedad sobreescrita para indicar que el país es México.
+    override val country = "Mexico"
+
+    // Mapa de tarifas específicas para ciertas ciudades.
+    protected val fees = mapOf(
+        "Monterrey" to 400,
+        "Guadalajara" to 350,
+        "CDMX" to 360,
+        "San Cristobal de las Casas" to 240,  // Corregido el nombre de la ciudad
+        "San Miguel de Allende" to 320
+    )
+
+    // Función para obtener el precio basado en la ciudad y la cantidad de días.
+    override fun getPrice(numDays: Int): Int {
+        val fee = fees[city]
+        return if (fee == null) 0 else fee * numDays
+    }
+
+    // Función para cotizar el precio del viaje y mostrar un mensaje correspondiente.
+    override fun quotePrice(numDays: Int) {
+        val price = getPrice(numDays)
+        if (price == 0) {
+            println("Lo sentimos, no hacemos viajes a esta ciudad")
+        } else {
+            println("Tu viaje a $city cuesta \$$price")
+        }
+    }
+}
