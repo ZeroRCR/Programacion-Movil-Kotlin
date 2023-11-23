@@ -1,0 +1,45 @@
+package Clases
+
+// Clase abstracta Travel que define un modelo general para las clases que la heredan.
+abstract class Travel {
+    
+    // Propiedades abstractas para el país y la ciudad del viaje.
+    abstract val country: String
+    abstract val city: String
+
+    // Propiedades protegidas para el tipo de servicio, la reserva, y la cantidad pagada.
+    protected val serviceType = "Viaje"
+    protected var reserved = false
+    protected var paidAmount = 0
+
+    // Función abstracta para cotizar el precio del viaje.
+    abstract fun quotePrice(numDays: Int)
+
+    // Función abstracta para obtener el precio del viaje.
+    protected abstract fun getPrice(numDays: Int): Int
+
+    // Función para reservar el viaje, mostrando mensajes según el estado de la reserva.
+    fun reserve(numDays: Int) {
+        if (reserved) {
+            println(
+                """¡Ya reservaste tu viaje!
+                    |País: $country
+                    |Ciudad: $city
+                    |Precio: $paidAmount""".trimMargin()
+            )
+            return
+        }
+        val amount = getPrice(numDays)
+        if (amount == 0) {
+            return
+        }
+        reserved = true
+        paidAmount = amount
+        println(
+            """¡Viaje reservado exitosamente!
+                |País: $country
+                |Ciudad: $city
+                |Precio: $paidAmount""".trimMargin()
+        )
+    }
+}
