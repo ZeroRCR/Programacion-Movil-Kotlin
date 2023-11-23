@@ -1,0 +1,30 @@
+package Clases
+
+// Definición de una clase abierta llamada "Enemigo" con propiedades de nombre y fuerza.
+open class Enemigo(val nombre: String, val fuerza: Int) {
+    init {
+        println("Iniciando superclase de Enemigo") // Mensaje de inicialización al crear una instancia.
+    }
+
+    // Variable protegida que representa la dirección del enemigo, inicializada en "Izquierda".
+    protected var direccion: String = "Izquierda"
+
+    // Función protegida para cambiar la dirección del enemigo.
+    protected fun cambiarDireccion() {
+        direccion = if (direccion == "Derecha") "Izquierda" else "Derecha"
+        println("$nombre va en dirección $direccion") // Imprime la nueva dirección.
+    }
+
+    // Función protegida que simula la muerte del enemigo.
+    protected fun morir() {
+        println("$nombre ha muerto") // Imprime un mensaje de muerte.
+    }
+
+    // Función abierta que maneja las colisiones, con casos específicos para "Arma" y "Enemigo".
+    open fun colision(colisionador: String) {
+        when (colisionador) {
+            "Arma" -> morir() // En caso de colisión con "Arma", el enemigo muere.
+            "Enemigo" -> cambiarDireccion() // En caso de colisión con otro "Enemigo", se cambia la dirección.
+        }
+    }
+}
