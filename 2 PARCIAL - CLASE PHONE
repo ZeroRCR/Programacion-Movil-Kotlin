@@ -1,0 +1,26 @@
+package Clases
+
+// Clase Phone que representa un teléfono con atributos y métodos básicos.
+class Phone {
+    // Atributo que indica si el teléfono está encendido o apagado, inicializado en falso.
+    var isOn = false
+
+    // Propiedad que representa el modelo del teléfono (lateinit se inicializará antes de su uso).
+    lateinit var model: String
+
+    // Método para encender el teléfono.
+    fun turnOn() {
+        isOn = true
+    }
+
+    // Método para apagar el teléfono (corregido, ahora establece isOn a falso).
+    fun turnOff() {
+        isOn = false
+    }
+
+    // Método para obtener el estado actual del teléfono (encendido o apagado) e imprimirlo.
+    fun getTurn() {
+        val turnMode = if (isOn) "Encendido" else "Apagado"
+        println("El teléfono está $turnMode")
+    }
+}
