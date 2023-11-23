@@ -1,0 +1,17 @@
+package Clases
+
+import interfaces.IPromotion
+
+// Clase NationalLowSeason que hereda de National e implementa la interfaz IPromotion.
+class NationalLowSeason(city: String) : National(city), IPromotion {
+    
+    // Propiedades de la interfaz IPromotion para aplicar descuentos.
+    override val discount = 10  // Descuento del 10%.
+    override val typeDiscount = 0  // Tipo de descuento: 0 para porcentaje, 1 para cantidad.
+
+    // Función para obtener el precio del viaje considerando el descuento de la temporada baja.
+    override fun getPrice(numDays: Int): Int {
+        val amount = super.getPrice(numDays)
+        return if (amount == 0) 0 else getDiscountPrice(amount)
+    }
+}
