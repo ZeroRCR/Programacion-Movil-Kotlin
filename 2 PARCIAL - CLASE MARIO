@@ -1,0 +1,57 @@
+package Clases
+import kotlin.concurrent.schedule
+import java.util.*
+
+class Mario(var vidas: Int = 3) {
+    init {
+        println("¡Es un Mario!")
+    }
+
+    private var estado = "pequeño"  // Cambiado el nombre del estado
+        set(value) {
+            val antes = field
+            field = value
+            println("Tu estado ahora es $field")
+            if (value == "Estrella") {  // Cambiado el nombre del estado a español
+                Timer("Estableciendo", false).schedule(10000) {
+                    field = antes
+                    println("Tu estado ahora es $field")
+                }
+            }
+        }
+
+    private var vidasRestantes = 3  // Cambiado el nombre de la variable
+        set(value) {
+            if (field == 1) {
+                field = 0
+                juegoTerminado()
+            } else if (field == 0) {
+                println("Necesitas volver a jugar")
+            } else {
+                field = value
+            }
+        }
+
+    val estaVivo: Boolean  // Cambiado el nombre de la variable
+        get() {
+            return vidasRestantes >= 1
+        }
+
+    fun colision(objetoColision: String) {  // Cambiado el nombre del parámetro
+        when (objetoColision) {
+            "Goomba" -> vidasRestantes--
+            "Super Champiñón" -> estado = "Super Mario"  // Cambiado el nombre del objeto
+            "Flor de Fuego" -> estado = "Mario de Fuego"  // Cambiado el nombre del objeto
+            "Estrella" -> estado = "Estrella"
+            else -> println("Objeto desconocido, ¡No pasa nada!")
+        }
+    }
+
+    fun obtenerVidas(): String {
+        return "$vidasRestantes vidas"
+    }
+
+    private fun juegoTerminado() {
+        println("Juego Terminado")
+    }
+}
