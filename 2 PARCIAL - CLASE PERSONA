@@ -1,0 +1,9 @@
+package clases
+
+class persona constructor(val nombre:String, val apellido:String, var altura:Float, var genero:Boolean) {
+
+fun cambio() {
+    genero = !genero
+}
+    
+}
